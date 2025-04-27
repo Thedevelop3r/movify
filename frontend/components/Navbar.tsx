@@ -9,7 +9,7 @@ export default function Navbar() {
             <div className="container mx-auto flex justify-between items-center">
                 <div className="text-white text-lg font-bold">Movify</div>
                 {/* Centered Movies Search Input */}
-                <div className="flex-grow mx-4">
+                <div className="flex flex-col mx-4 w-full max-w-md">
                     <MoviesSearchInput />
                 </div>
                 <ul className="flex space-x-4">
