@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function MovieCard({ movie }: { movie: MovieResult }) {
     return (
-        <Link href={`/movies/details?id=${movie.id}`} className="no-underline">
+        <Link href={`/movies/details/${movie.id}`} className="no-underline">
             <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="p-4">
                     <h3 className="font-bold text-lg mb-2">{movie.title}</h3>

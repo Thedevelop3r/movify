@@ -60,7 +60,7 @@ export default function HomePage() {
                 <div className="aspect-[2/3] bg-gray-800 relative">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                     <Link
-                      href={`/movies/details?id=${movie.id}`}
+                      href={`/movies/details/${movie.id}`}
                       className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded text-center font-medium transition-colors"
                     >
                       View Details
@@ -122,7 +122,7 @@ export default function HomePage() {
                   <p className="text-gray-400 line-clamp-2 mb-4">{movie.description}</p>
                   <div className="flex gap-3">
                     <Link
-                      href={`/movies/details?id=${movie.id}`}
+                      href={`/movies/details/${movie.id}`}
                       className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded text-center font-medium transition-colors"
                     >
                       Details

@@ -123,7 +123,7 @@ export default function ActorsListPage() {
                         {actor.movies.slice(0, 3).map(movie => (
                           <li key={movie.id}>
                             <Link
-                              href={`/movies/details?id=${movie.id}`}
+                              href={`/movies/details/${movie.id}`}
                               className="text-blue-400 hover:text-blue-300 hover:underline flex items-center"
                             >
                               <span>{movie.title}</span>

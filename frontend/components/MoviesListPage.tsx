@@ -9,7 +9,6 @@ import MoviesSearchInput from '@/components/MovieSearchInput';
 const MOVIES_PER_PAGE = 6;
 
 export default function MoviesListPage({ genre, sort }: { genre: string, sort: string }) {
-    const router = useRouter();
     const [displayedMovies, setDisplayedMovies] = useState<MovieResult[]>(allMovies);
     const [activeFilter, setActiveFilter] = useState<string>(genre || "");
     const [activeSort, setActiveSort] = useState<string>(sort || "");
@@ -61,6 +60,7 @@ export default function MoviesListPage({ genre, sort }: { genre: string, sort: s
                 <MoviesSearchInput initialValue='' />
             </div>
             <p className="mb-4">Explore our collection of movies.</p>
+
 
             {/* Filter and Sort Controls */}
 
