@@ -69,7 +69,7 @@ export default function MovieDetailPage({ params }: { params: { id: number } }) 
             <div className="bg-gray-800 rounded-lg shadow-xl p-8">
               <h2 className="text-3xl font-bold mb-6">Overview</h2>
               <p className="text-lg leading-relaxed mb-8">{movie.description}</p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <h3 className="text-xl font-semibold mb-4">Details</h3>
@@ -79,8 +79,12 @@ export default function MovieDetailPage({ params }: { params: { id: number } }) 
                       <span>{movie.year}</span>
                     </div>
                     <div className="flex justify-between border-b border-gray-700 pb-2">
-                      <span className="text-gray-400">Genre</span>
-                      <span>{movie.genre.join(', ')}</span>
+                      <span className="text-gray-400 mr-2">Genre</span>
+                      <span className="flex flex-wrap flex-row gap-1 justify-end">{
+                        movie.genre.map((genre, index) => (
+                          <span key={index} className="text-gray-100 rounded-xl bg-gray-600 p-2 mr-2">{genre}{index < movie.genre.length - 1 ? '' : ''}</span>
+                        ))
+                      }</span>
                     </div>
                     <div className="flex justify-between border-b border-gray-700 pb-2">
                       <span className="text-gray-400">Rating</span>
