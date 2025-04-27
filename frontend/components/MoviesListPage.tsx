@@ -4,14 +4,15 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { moviesList as allMovies } from '@/dummydata/data';
 import MovieCard from '@/components/MovieCard';
+import MoviesSearchInput from '@/components/MovieSearchInput';
 
 const MOVIES_PER_PAGE = 6;
 
-export default function MoviesListPage({ genre }: { genre: string }) {
+export default function MoviesListPage({ genre, sort }: { genre: string, sort: string }) {
     const router = useRouter();
     const [displayedMovies, setDisplayedMovies] = useState<MovieResult[]>(allMovies);
     const [activeFilter, setActiveFilter] = useState<string>(genre || "");
-    const [activeSort, setActiveSort] = useState<string>("");
+    const [activeSort, setActiveSort] = useState<string>(sort || "");
     const [currentPage, setCurrentPage] = useState(1);
 
     // Apply both filter and sort whenever either changes
@@ -55,8 +56,13 @@ export default function MoviesListPage({ genre }: { genre: string }) {
 
     return (
         <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-bold mb-4">Movies List</h1>
+            <div className="flex justify-between items-center mb-4">
+                <h1 className="text-2xl font-bold">Movies</h1>
+                <MoviesSearchInput initialValue='' />
+            </div>
             <p className="mb-4">Explore our collection of movies.</p>
+
+            {/* Filter and Sort Controls */}
 
             <div className="flex justify-between mb-4">
                 <div className="flex items-center">

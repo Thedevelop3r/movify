@@ -1,17 +1,20 @@
 import React from 'react';
 import Link from 'next/link';
-import MoviesSearchInput from './MovieSearchInput';
+// import MoviesSearchInput from './MovieSearchInput';
 
 export default function Navbar() {
 
     return (
         <nav className="bg-gray-800 p-4">
             <div className="container mx-auto flex justify-between items-center">
-                <div className="text-white text-lg font-bold">Movify</div>
+                <Link href="/" className="text-white text-2xl font-bold">
+                    <div className="text-white text-lg font-bold">Movify</div>
+                </Link>
+                {/* Logo */}
                 {/* Centered Movies Search Input */}
-                <div className="flex flex-col mx-4 w-full max-w-md">
+                {/* <div className="flex flex-col mx-4 w-full max-w-md">
                     <MoviesSearchInput />
-                </div>
+                </div> */}
                 <ul className="flex space-x-4">
                     <li>
                         <Link href="/" className="text-gray-300 hover:text-white">
