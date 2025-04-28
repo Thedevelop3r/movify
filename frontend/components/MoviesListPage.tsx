@@ -1,6 +1,5 @@
 "use client";
 import React from 'react';
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { moviesList as allMovies } from '@/dummydata/data';
 import MovieCard from '@/components/MovieCard';
@@ -9,10 +8,11 @@ import MoviesSearchInput from '@/components/MovieSearchInput';
 const MOVIES_PER_PAGE = 6;
 
 export default function MoviesListPage({ genre, sort }: { genre: string, sort: string }) {
-    const [displayedMovies, setDisplayedMovies] = useState<MovieResult[]>(allMovies);
+    const [displayedMovies, setDisplayedMovies] = useState<MovieResult[]>([...allMovies]);
     const [activeFilter, setActiveFilter] = useState<string>(genre || "");
     const [activeSort, setActiveSort] = useState<string>(sort || "");
     const [currentPage, setCurrentPage] = useState(1);
+
 
     // Apply both filter and sort whenever either changes
     useEffect(() => {
@@ -30,6 +30,8 @@ export default function MoviesListPage({ genre, sort }: { genre: string, sort: s
             result.sort((a, b) => b.rating - a.rating);
         } else if (activeSort === "year") {
             result.sort((a, b) => b.year - a.year);
+        } else if (activeSort === "name") {
+            result.sort((a, b) => a.title.localeCompare(b.title));
         }
 
         setDisplayedMovies(result);
@@ -90,6 +92,7 @@ export default function MoviesListPage({ genre, sort }: { genre: string, sort: s
                         className="bg-gray-700 text-white p-2 rounded"
                     >
                         <option value="">Default</option>
+                        <option value="name">Name</option>
                         <option value="rating">Rating</option>
                         <option value="year">Year</option>
                     </select>

@@ -62,7 +62,7 @@ export default function MoviesSearchInput({ initialValue = '' }: MoviesSearchInp
     };
 
     return (
-        <div className="relative flex items-center justify-center mt-4 w-full max-w-md">
+        <div className="relative flex items-center justify-center ml-4 mt-4 w-full max-w-md">
             <input
                 ref={inputRef}
                 type="text"
